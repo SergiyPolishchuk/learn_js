@@ -1,0 +1,43 @@
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: beige;
+}
+
+.ball {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    animation: drop 1s ease-in-out infinite alternate;
+}
+
+.shadow{
+    margin-top: 150px;
+    width: 350px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: lightgray;
+    animation: shadow 1s ease-in-out infinite alternate;
+}
+
+@keyframes drop {
+    from{
+        bottom: 290px;
+    }
+    to{
+        bottom: 400px;
+    }
+}
+
+@keyframes shadow {
+    from  {
+        width: 100px;
+        filter: blur(10px);
+    }
+    to {
+        filter: blur(20px);
+    }
+}
