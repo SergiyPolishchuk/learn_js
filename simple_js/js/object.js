@@ -272,3 +272,85 @@
 // console.log(user2);
 
 
+// let someText = prompt('Enter text', 'some');
+
+// alert(someText);
+
+// let newSomeText = ucFirst(someText);
+// alert(newSomeText);
+
+
+// function ucFirst(str) {
+//     return str[0].toUpperCase() + str.slice(1);
+// }
+
+
+// let x = prompt('enter text', 'some text viagra sometext XXX');
+
+// alert(checkSpam(x));
+
+// function checkSpam(str) {
+//     let strNew = str.toLowerCase();
+    
+//     return strNew.includes('viagra') || strNew.includes('xxx');
+// }
+
+
+// alert(truncate("Що я хотів би розповісти на цю тему:", 20));
+
+// function truncate(str, maxlength) {
+//     return (str.length >= maxlength) ?
+//         str.slice(0, maxlength - 3) + '...' : str;
+// }
+
+
+// let price = prompt('Price', '$120');
+
+// let number = extractCurrencyValue(price);
+
+// alert(number);
+
+// function extractCurrencyValue(str) {
+//     return +str.slice(1);
+// }
+
+// let fruits = ["Apple", "Orange", "Plum"];
+
+// console.log(fruits[2]);
+
+// sumInput();
+
+// function sumInput() {
+//     let arr = [];
+//     let sum = 0;
+
+//     while (true) {
+//         let number = +prompt('Enter number', '');
+
+//         if (number === "" || number === null || !isFinite(number)) break;
+
+//         arr.push(+number);
+//     }
+
+//     for (let n of arr) {
+//         sum += n;
+//     }
+//     console.log(arr);
+//     console.log(sum);
+// }
+
+// let matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]
+
+// for (let n of matrix) {
+//     console.log(n);
+// }
+
+// console.log(matrix.length);
+
+// let n = 01;
+
+// console.log(n + 4);
