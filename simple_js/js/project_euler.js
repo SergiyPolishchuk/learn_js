@@ -556,10 +556,109 @@ let matrix = createMatrix(arrayOfData); // створюємо матрицю з 
 
 console.log(matrix);
 
-console.log('rowCalculation: ' + rowCalculation(matrix));
-console.log('colsCalculation: ' + colsCalculation(matrix));
+// console.log('rowCalculation: ' + rowCalculation(matrix));
+// console.log('colsCalculation: ' + colsCalculation(matrix));
+// console.log('digCalculationL: ' + digCalculationL(matrix));
+// console.log('digCalculationR: ' + digCalculationR(matrix));
+
+console.log('Max number: ' + Math.max(digCalculationR(matrix), digCalculationL(matrix), colsCalculation(matrix), rowCalculation(matrix)));
 
 
+function digCalculationR(arr) {
+    let maxProduct = 0;
+    let k = 0;
+    let trueNumbers = [];
+    let inRow = 0;
+
+    for (let row = 0; row < lengthMatrix - 3; row++) {
+        let maxProductRow = 0;
+
+        for (let cols = lengthMatrix - 4; cols > 0; cols--) {
+            let sum = 1;
+            let numbers = [];
+            k = 0;
+
+            for (let i = 0; i < 4; i++) {
+                k = row + i;
+
+                //записуємо числа, які ми обчислюєм в масив
+                numbers[i] = arr[k][cols + k];
+                sum = arr[k][cols + k] * sum;
+            }
+
+            if (isNaN(sum) == true) {
+                sum = 0;
+            }
+
+                // console.log("numbers: " + numbers);
+                maxProductRow = Math.max(maxProductRow, sum); // максимальний добуток чисел в рядку кожному рядку
+
+                // знаходимо числа, які дали максимальний добуток
+                if (maxProduct < sum) {
+                    trueNumbers = numbers;
+                    inRow = cols;
+                }
+
+                maxProduct = Math.max(maxProduct, sum); // Максимальний добуток з усіх рядків
+
+                // console.log(`(${row}): ${sum}`);
+        }
+        // console.log(`(${row}): max: ${maxProductRow}`)
+    }
+    console.log(`${inRow}: numbers: ${trueNumbers}`);
+    console.log(`max diagonal Right number: ${maxProduct}`);
+    return maxProduct;
+}
+
+
+function digCalculationL(arr) {
+    let maxProduct = 0;
+    let k = 0;
+    let trueNumbers = [];
+    let inRow = 0;
+
+    for (let row = 0; row < lengthMatrix - 3; row++) {
+        let maxProductRow = 0;
+
+        for (let cols = 3; cols < lengthMatrix; cols++) {
+            let sum = 1;
+            let numbers = [];
+            k = 0;
+
+            for (let i = 0; i < 4; i++) {
+                k = row + i;
+
+                //записуємо числа, які ми обчислюєм в масив
+                numbers[i] = arr[k][cols - k];
+                sum = arr[k][cols - k] * sum;
+            }
+
+            if (isNaN(sum) == true) {
+                sum = 0;
+            }
+
+                // console.log("numbers: " + numbers);
+                maxProductRow = Math.max(maxProductRow, sum); // максимальний добуток чисел в рядку кожному рядку
+
+                // знаходимо числа, які дали максимальний добуток
+                if (maxProduct < sum) {
+                    trueNumbers = numbers;
+                    inRow = cols;
+                }
+
+                maxProduct = Math.max(maxProduct, sum); // Максимальний добуток з усіх рядків
+
+                // console.log(`(${row}): ${sum}`);
+        }
+        // console.log(`(${row}): max: ${maxProductRow}`)
+    }
+    console.log(`${inRow}: numbers: ${trueNumbers}`);
+    console.log(`max diagonal Left number: ${maxProduct}`);
+    return maxProduct;
+}
+
+
+// Максимальний добуток стовпчиків
 function colsCalculation(arr) {
     let maxProduct = 0;
     let k = 0;
@@ -597,7 +696,7 @@ function colsCalculation(arr) {
         // console.log(`(${row}): max: ${maxProductRow}`)
     }
     console.log(`(cols: ${inCols}): numbers: ${trueNumbers}`);
-    // console.log(`max cols number: ${maxProduct}`);
+    console.log(`max cols number: ${maxProduct}`);
     return maxProduct;
 }
 
@@ -640,7 +739,7 @@ function rowCalculation(arr) {
         // console.log(`(${row}): max: ${maxProductRow}`)
     }
     console.log(`(row: ${inRow}): numbers: ${trueNumbers}`);
-    // console.log(`max row number: ${maxProduct}`);
+    console.log(`max row number: ${maxProduct}`);
     return maxProduct;
 }
 
